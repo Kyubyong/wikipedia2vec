@@ -22,7 +22,7 @@ def list_cpp_files(package_dir='wikipedia2vec'):
     for (dir_name, _, files) in os.walk(package_dir):
         for file_name in files:
             (module_name, ext) = os.path.splitext(file_name)
-            if ext == '.cpp':
+            if ext == '.pyx':
                 module_name = '.'.join(dir_name.split(os.sep) + [module_name])
                 path = os.path.join(dir_name, file_name)
                 ret.append((module_name, dict(
