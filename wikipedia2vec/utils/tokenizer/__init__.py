@@ -4,6 +4,8 @@
 def get_default_tokenizer(language):
     if language == 'ja':
         return get_tokenizer('mecab')
+    elif language == 'ko':
+        return get_tokenizer('python_mecab_ko')
     elif language == 'zh':
         return get_tokenizer('jieba')
     else:
@@ -26,6 +28,9 @@ def get_tokenizer(name, language=None):
     elif name == 'jieba':
         from .jieba_tokenizer import JiebaTokenizer
         return JiebaTokenizer()
+    elif name == 'python_mecab_ko':
+        from .python_mecab_ko import PythonMecabKoTokenizer
+        return PythonMecabKoTokenizer()
     else:
         raise NotImplementedError()
 # -*- coding: utf-8 -*-
